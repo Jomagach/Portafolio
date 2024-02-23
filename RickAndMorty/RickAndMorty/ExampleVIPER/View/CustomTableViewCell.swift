@@ -8,39 +8,37 @@
 import UIKit
 import Kingfisher
 
+// MARK: CustomTableViewCell 
 class CustomTableViewCell: UITableViewCell {
     
-    let padding : CGFloat = 10
-    let paddingContent : CGFloat = 5
-    let paddingService : CGFloat = 20
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
+    // MARK: - Public variables -
+    let padding : CGFloat = 10.0
+    let paddingContent : CGFloat = 5.0
+    let paddingService : CGFloat = 20.0
+    let avatarHeight: CGFloat = 150.0
+    let avatarWidth : CGFloat = 150.0
+    let cornerRadius : CGFloat = 10.0
     
-    var viewContainer : UIView = {
+    // MARK: - Private properties -
+    private lazy var viewContainer : UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = RickAndMortyColors.palette5
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = self.cornerRadius
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    var avatarImageView : UIImageView = {
+    private lazy var avatarImageView : UIImageView = {
         let view = UIImageView(frame: .zero)
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
         view.layer.masksToBounds = true
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = self.cornerRadius
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    var nameLabel : UILabel = {
+    private var nameLabel : UILabel = {
         let label = UILabel(frame: .zero)
         label.numberOfLines = 0
         label.font = UIFont(name: "Sono-Bold", size: 14)
@@ -49,7 +47,7 @@ class CustomTableViewCell: UITableViewCell {
         return label
     }()
     
-    var statusSpecieLabel : UILabel = {
+    private var statusSpecieLabel : UILabel = {
         let label = UILabel(frame: .zero)
         label.numberOfLines = 0
         label.font = UIFont(name: "Sono-Regular", size: 12)
@@ -58,16 +56,17 @@ class CustomTableViewCell: UITableViewCell {
         return label
     }()
     
-    var locationTitleLabel : UILabel = {
+    private var locationTitleLabel : UILabel = {
         let label = UILabel(frame: .zero)
         label.numberOfLines = 0
         label.font = UIFont(name: "Sono-Light", size: 12)
         label.textColor = RickAndMortyColors.palette2
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Last known location:"
         return label
     }()
     
-    var locationValueLabel : UILabel = {
+    private var locationValueLabel : UILabel = {
         let label = UILabel(frame: .zero)
         label.numberOfLines = 0
         label.font = UIFont(name: "Sono-Regular", size: 12)
@@ -76,16 +75,17 @@ class CustomTableViewCell: UITableViewCell {
         return label
     }()
     
-    var episodeTitleLabel : UILabel = {
+    private var episodeTitleLabel : UILabel = {
         let label = UILabel(frame: .zero)
         label.numberOfLines = 0
         label.font = UIFont(name: "Sono-Light", size: 12)
         label.textColor = RickAndMortyColors.palette2
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "First seen in:"
         return label
     }()
     
-    var episodeValueLabel : UILabel = {
+    private var episodeValueLabel : UILabel = {
         let label = UILabel(frame: .zero)
         label.numberOfLines = 0
         label.font = UIFont(name: "Sono-Regular", size: 12)
@@ -94,13 +94,23 @@ class CustomTableViewCell: UITableViewCell {
         return label
     }()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    // MARK: - Setup properties -
+    override init(style: UITableViewCell.CellStyle,
+                  reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
     }
     
     override func prepareForReuse() {
@@ -122,8 +132,8 @@ class CustomTableViewCell: UITableViewCell {
         viewContainer.addSubview(avatarImageView)
         avatarImageView.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor).isActive = true
         avatarImageView.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor).isActive = true
-        avatarImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        avatarImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        avatarImageView.widthAnchor.constraint(equalToConstant: avatarWidth).isActive = true
+        avatarImageView.heightAnchor.constraint(equalToConstant: avatarHeight).isActive = true
         
         viewContainer.addSubview(nameLabel)
         nameLabel.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: padding).isActive = true
@@ -139,7 +149,6 @@ class CustomTableViewCell: UITableViewCell {
         locationTitleLabel.topAnchor.constraint(equalTo: statusSpecieLabel.bottomAnchor, constant: paddingService).isActive = true
         locationTitleLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: padding).isActive = true
         locationTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: viewContainer.trailingAnchor, constant: -padding).isActive = true
-        locationTitleLabel.text = "Last known location:"
         
         viewContainer.addSubview(locationValueLabel)
         locationValueLabel.topAnchor.constraint(equalTo: locationTitleLabel.bottomAnchor, constant: paddingContent).isActive = true
@@ -150,7 +159,6 @@ class CustomTableViewCell: UITableViewCell {
         episodeTitleLabel.topAnchor.constraint(equalTo: locationValueLabel.bottomAnchor, constant: paddingService).isActive = true
         episodeTitleLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: padding).isActive = true
         episodeTitleLabel.trailingAnchor.constraint(lessThanOrEqualTo: viewContainer.trailingAnchor, constant: -padding).isActive = true
-        episodeTitleLabel.text = "First seen in:"
         
         viewContainer.addSubview(episodeValueLabel)
         episodeValueLabel.topAnchor.constraint(equalTo: episodeTitleLabel.bottomAnchor, constant: paddingContent).isActive = true
@@ -160,15 +168,20 @@ class CustomTableViewCell: UITableViewCell {
         episodeValueLabel.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor,constant: -padding).isActive = true
     }
     
-    func setData(image: String, name: String, statusSpecie: String, location: String, episode: String){
-        let urlImage: URL? = URL(string: image)
-        self.avatarImageView.kf.setImage(with: urlImage) { result in
-            self.layoutSubviews()
-        }
-        self.nameLabel.text = name
-        self.statusSpecieLabel.text = statusSpecie
-        self.locationValueLabel.text = location
-        self.episodeValueLabel.text = episode
+    func setData(
+        image: String,
+        name: String,
+        statusSpecie: String,
+        location: String,
+        episode: String) {
+            let urlImage: URL? = URL(string: image)
+            self.avatarImageView.kf.setImage(with: urlImage) { result in
+                self.layoutSubviews()
+            }
+            self.nameLabel.text = name
+            self.statusSpecieLabel.text = statusSpecie
+            self.locationValueLabel.text = location
+            self.episodeValueLabel.text = episode
     }
     
     override func layoutSubviews() {

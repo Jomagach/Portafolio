@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: ExampleViewController
 final class ExampleViewController: UIViewController {
 
     // MARK: - Public properties -
@@ -73,23 +74,34 @@ extension ExampleViewController: ExampleView {
         tableViewExample.reloadData()
     }
     
+    func appendData(characters: [Character]?) {
+        guard let newCharacters = characters else { return}
+        self.items?.append(contentsOf: newCharacters)
+        tableViewExample.reloadData()
+    }
+    
 }
 
 //MARK: Table delegates
 
 extension ExampleViewController : UITableViewDelegate, UITableViewDataSource{
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.items?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : CustomTableViewCell? = tableView.dequeueReusableCell(withIdentifier: "cellID") as? CustomTableViewCell
+        if indexPath.row == (items?.count ?? 0) - 1 {
+              let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! CustomTableViewCell
+              eventHandler.handleNextPage()
+              return cell
+            }
         if let data = items?[indexPath.row]{
             cell?.setData(image: data.image, name: data.name, statusSpecie: "\(data.status) - \(data.species)", location: data.location.name, episode: data.origin.name)
         }
         return cell ?? UITableViewCell()
     }
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension

@@ -34,6 +34,7 @@
 		A38C7F7E2B87ED2F00747632 /* Sono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A38C7F762B87ED0F00747632 /* Sono-Medium.ttf */; };
 		A38C7F812B87F47500747632 /* RickAndMortyColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38C7F802B87F47500747632 /* RickAndMortyColors.swift */; };
 		A38C7F832B87F53500747632 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38C7F822B87F53500747632 /* UIColor.swift */; };
+		A38C7F852B8878F800747632 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38C7F842B8878F800747632 /* URLExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		A38C7F772B87ED0F00747632 /* Sono-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sono-Light.ttf"; sourceTree = "<group>"; };
 		A38C7F802B87F47500747632 /* RickAndMortyColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyColors.swift; sourceTree = "<group>"; };
 		A38C7F822B87F53500747632 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		A38C7F842B8878F800747632 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,9 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				A38C7F6C2B87EC6800747632 /* Utilities */,
-				A38C7F5E2B87BC9F00747632 /* Episodes */,
-				A38C7F5D2B87BC9800747632 /* Locations */,
-				A38C7F5C2B87BC8A00747632 /* Characters */,
 				A38C7F3F2B87B93100747632 /* ExampleVIPER */,
 				A38C7F0F2B87B8E600747632 /* AppDelegate.swift */,
 				A38C7F182B87B8E800747632 /* Assets.xcassets */,
@@ -220,59 +219,6 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		A38C7F5C2B87BC8A00747632 /* Characters */ = {
-			isa = PBXGroup;
-			children = (
-				A38C7F612B87BCCC00747632 /* Domain */,
-				A38C7F602B87BCC200747632 /* Application */,
-				A38C7F5F2B87BCB700747632 /* Infrastructure */,
-			);
-			path = Characters;
-			sourceTree = "<group>";
-		};
-		A38C7F5D2B87BC9800747632 /* Locations */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Locations;
-			sourceTree = "<group>";
-		};
-		A38C7F5E2B87BC9F00747632 /* Episodes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Episodes;
-			sourceTree = "<group>";
-		};
-		A38C7F5F2B87BCB700747632 /* Infrastructure */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Infrastructure;
-			sourceTree = "<group>";
-		};
-		A38C7F602B87BCC200747632 /* Application */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Application;
-			sourceTree = "<group>";
-		};
-		A38C7F612B87BCCC00747632 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				A38C7F622B87CF0500747632 /* Validations */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		A38C7F622B87CF0500747632 /* Validations */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Validations;
-			sourceTree = "<group>";
-		};
 		A38C7F6C2B87EC6800747632 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +234,7 @@
 			children = (
 				A38C7F6D2B87EC7C00747632 /* UIVIewExtension.swift */,
 				A38C7F822B87F53500747632 /* UIColor.swift */,
+				A38C7F842B8878F800747632 /* URLExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -462,6 +409,7 @@
 				A38C7F6B2B87E9F500747632 /* Location.swift in Sources */,
 				A38C7F522B87B95A00747632 /* ExampleInterfaces.swift in Sources */,
 				A38C7F102B87B8E600747632 /* AppDelegate.swift in Sources */,
+				A38C7F852B8878F800747632 /* URLExtension.swift in Sources */,
 				A38C7F812B87F47500747632 /* RickAndMortyColors.swift in Sources */,
 				A38C7F542B87B95A00747632 /* CustomTableViewCell.swift in Sources */,
 				A38C7F582B87BB4300747632 /* InfoAndPagination.swift in Sources */,
