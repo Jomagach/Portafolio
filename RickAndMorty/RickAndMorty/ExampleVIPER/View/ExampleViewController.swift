@@ -93,7 +93,7 @@ extension ExampleViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : CustomTableViewCell? = tableView.dequeueReusableCell(withIdentifier: "cellID") as? CustomTableViewCell
         if indexPath.row == (items?.count ?? 0) - 1 {
-              let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! CustomTableViewCell
+            let cell: CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! CustomTableViewCell
               eventHandler.handleNextPage()
               return cell
             }

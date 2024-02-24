@@ -16,6 +16,8 @@ final class ExampleInteractor: ExampleProvider {
     let urlStringEpisodes : String = "https://rickandmortyapi.com/api/episode"
     
     weak var output: ExampleOutput?
+    let parseHandler: ParseHandler = ParseHandler()
+    let apiHandler: APIHandler = APIHandler()
     
     func fetchData(){
         fetchCharacters()
@@ -31,8 +33,9 @@ final class ExampleInteractor: ExampleProvider {
     func fetchCharacters(){
         guard let urlCreated : URL = URL(string: urlStringCharacters) else {return}
         let request = URLRequest(url: urlCreated)
-        getCharacter(request: request) { data in
-            self.output?.showData(out: data)
+        apiHandler.getCharacter(request: request) { data in
+            let result = self.parseHandler.parseCharacters(data: data)
+            self.output?.showData(out: result)
         }
     }
     
@@ -40,39 +43,20 @@ final class ExampleInteractor: ExampleProvider {
         let url : String = urlStringCharacters+"\(id)"
         guard let urlCreated : URL = URL(string: url) else {return}
         let request = URLRequest(url: urlCreated)
-        getCharacter(request: request) { data in
-            self.output?.showData(out: data)
+        apiHandler.getCharacter(request: request) { data in
+            let result = self.parseHandler.parseCharacters(data: data)
+            self.output?.showData(out: result)
         }
     }
     
     func fetchCharactersByPage(page: String){
         guard let urlCreated : URL = URL(string: page) else {return}
         let request = URLRequest(url: urlCreated)
-        getCharacter(request: request) { data in
-            self.output?.appendData(out: data)
+        apiHandler.getCharacter(request: request) { data in
+            let result = self.parseHandler.parseCharacters(data: data)
+            self.output?.appendData(out: result)
         }
     }
     
-    func getCharacter(request: URLRequest, completion: @escaping (_ data: InfoAndPagination?)->Void){
-        let session = URLSession.shared
-        session.dataTask(with: request) {data, response, error in
-            if error != nil {
-                print(error!.localizedDescription)
-                return
-            }
-            if let data = data{
-                if let respString = String(data: data, encoding: String.Encoding.utf8){
-                    print(respString)
-                }
-                DispatchQueue.main.async {
-                    do{
-                        let result = try JSONDecoder().decode(InfoAndPagination.self, from: data)
-                        completion(result)
-                    }catch let error{
-                        print(error)
-                    }
-                }
-            }
-        }.resume()
-    }
+    
 }

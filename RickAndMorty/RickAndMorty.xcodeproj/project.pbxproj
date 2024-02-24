@@ -35,6 +35,8 @@
 		A38C7F812B87F47500747632 /* RickAndMortyColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38C7F802B87F47500747632 /* RickAndMortyColors.swift */; };
 		A38C7F832B87F53500747632 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38C7F822B87F53500747632 /* UIColor.swift */; };
 		A38C7F852B8878F800747632 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38C7F842B8878F800747632 /* URLExtension.swift */; };
+		A38C7F872B89295900747632 /* ParseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38C7F862B89295900747632 /* ParseHandler.swift */; };
+		A38C7F892B8929D500747632 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38C7F882B8929D500747632 /* APIHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		A38C7F802B87F47500747632 /* RickAndMortyColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyColors.swift; sourceTree = "<group>"; };
 		A38C7F822B87F53500747632 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		A38C7F842B8878F800747632 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
+		A38C7F862B89295900747632 /* ParseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseHandler.swift; sourceTree = "<group>"; };
+		A38C7F882B8929D500747632 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +211,8 @@
 			isa = PBXGroup;
 			children = (
 				A38C7F4B2B87B95A00747632 /* ExampleInteractor.swift */,
+				A38C7F862B89295900747632 /* ParseHandler.swift */,
+				A38C7F882B8929D500747632 /* APIHandler.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -410,6 +416,7 @@
 				A38C7F522B87B95A00747632 /* ExampleInterfaces.swift in Sources */,
 				A38C7F102B87B8E600747632 /* AppDelegate.swift in Sources */,
 				A38C7F852B8878F800747632 /* URLExtension.swift in Sources */,
+				A38C7F872B89295900747632 /* ParseHandler.swift in Sources */,
 				A38C7F812B87F47500747632 /* RickAndMortyColors.swift in Sources */,
 				A38C7F542B87B95A00747632 /* CustomTableViewCell.swift in Sources */,
 				A38C7F582B87BB4300747632 /* InfoAndPagination.swift in Sources */,
@@ -418,6 +425,7 @@
 				A38C7F552B87B95A00747632 /* ExampleInteractor.swift in Sources */,
 				A38C7F642B87CF6600747632 /* Character.swift in Sources */,
 				A38C7F532B87B95A00747632 /* ExampleViewController.swift in Sources */,
+				A38C7F892B8929D500747632 /* APIHandler.swift in Sources */,
 				A38C7F5A2B87BBB500747632 /* Info.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

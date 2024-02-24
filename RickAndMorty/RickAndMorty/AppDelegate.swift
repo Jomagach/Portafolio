@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let frame = ExampleWireframe(in: window)
+        let frame: ExampleWireframe = ExampleWireframe(in: window)
         frame.showExampleView()
         return true
     }
