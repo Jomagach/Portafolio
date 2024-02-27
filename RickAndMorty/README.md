@@ -28,3 +28,7 @@ All views was made programatically, using Swift 5.
 
 * **Jose Manuel Garcia Chavez
 
+
+![image](https://github.com/Jomagach/Portafolio/assets/25616899/1b495029-4834-4bef-874b-984adc757734)
+
+![image](https://github.com/Jomagach/Portafolio/assets/25616899/4c4b8ffe-8ffe-42de-a603-05265f0ec19e)
