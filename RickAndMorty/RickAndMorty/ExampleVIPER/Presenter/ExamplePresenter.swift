@@ -29,22 +29,34 @@ extension ExamplePresenter: ExampleEventHandler {
         provider?.fetchCharactersByPage(page: nextPage)
     }
     
+    func handleDetails(ID: Int){
+        wireframe?.showDetails(ID: ID)
+    }
+    
 }
 
 // MARK: - Extensions - Ejecuta en el presenter los llamados del Interactor
 extension ExamplePresenter: ExampleOutput {
     func showData<T>(out: T) {
-        let data = out as? InfoAndPagination
+        let data: InfoAndPagination? = out as? InfoAndPagination
         self.currentInfo = data?.info
         self.currentCharacters = data?.results
         view?.showCharacter(characters: self.currentCharacters ?? [])
     }
     
     func appendData<T>(out: T) {
-        let data = out as? InfoAndPagination
+        let data: InfoAndPagination? = out as? InfoAndPagination
         self.currentInfo = data?.info
         self.currentCharacters = data?.results
         view?.appendData(characters: self.currentCharacters ?? [])
+    }
+    
+    
+    func manageError<T>(out: T){
+        let error: Error? = out as? Error
+        if let errorUnwrapped = error{
+            print(errorUnwrapped.localizedDescription)
+        }
     }
     
     

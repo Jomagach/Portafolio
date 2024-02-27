@@ -1,30 +1,29 @@
 //
-//  ExampleInterfaces.swift
+//  CharacterInterfaces.swift
 //  RickAndMorty
 //
-//  Created by Jose Manuel Garcia Chavez on 22/02/24.
+//  Created by Jose Manuel Garcia Chavez on 26/02/24.
 //
 
 import UIKit
 // MARK: - Protocol - Funcines en las que el Presenter comparte datos con el View Controller
-protocol ExampleView: class {
-    func showCharacter(characters: [Character]?)
-    func appendData(characters: [Character]?)
+protocol CharacterView: class {
+    func showCharacter(image: String,
+                       name: String,
+                       statusSpecie: String,
+                       location: String,
+                       episodes: [String])
 }
 // MARK: - Protocol - Funciones en las que el View Controler al Presenter
-protocol ExampleEventHandler {
+protocol CharacterEventHandler {
     func fetchData()
-    func handleNextPage()
-    func handleDetails(ID: Int)
 }
 // MARK: - Protocol - Funciones que comunican al Presenter con el Interactos
-protocol ExampleProvider {
-    func fetchData()
-    func fetchCharactersByPage(page: String)
+protocol CharacterProvider {
+    func fetchCharactersByID(id: Int)
 }
 // MARK: - Protocol - Funciones en las que el Interactor envia datos al Presenter
-protocol ExampleOutput: class {
+protocol CharacterOutput: class {
     func showData<T>(out: T)
-    func appendData<T>(out: T)
     func manageError<T>(out: T)
 }

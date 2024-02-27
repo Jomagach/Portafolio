@@ -40,5 +40,10 @@ class ExampleWireframe {
         self.window?.makeKeyAndVisible()
     }
     
+    func showDetails(ID: Int){
+        let frame = CharacterWireframe(in: window, ID: ID)
+        frame.pushCharacterView(animated: true)
+    }
+    
 }
 

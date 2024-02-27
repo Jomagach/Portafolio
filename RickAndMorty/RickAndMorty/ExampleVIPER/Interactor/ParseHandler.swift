@@ -9,7 +9,8 @@ import Foundation
 
 // MARK: ParseHandler
 final class ParseHandler {
-    public func parseCharacters(data: Data?) 
+    
+    public func parseCharacters(data: Data?)
         -> InfoAndPagination? {
             guard let dataUnwrapped = data else {return nil}
             do{
@@ -20,4 +21,5 @@ final class ParseHandler {
                 return nil
             }
     }
+    
 }

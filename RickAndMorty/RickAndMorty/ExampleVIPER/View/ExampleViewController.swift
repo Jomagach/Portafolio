@@ -20,7 +20,7 @@ final class ExampleViewController: UIViewController {
     var tableViewExample : UITableView = {
         let table = UITableView(frame: .zero)
         table.backgroundColor = .clear
-        table.allowsSelection = false
+        table.allowsSelection = true
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(CustomTableViewCell.self, forCellReuseIdentifier: "cellID")
         return table
@@ -105,6 +105,12 @@ extension ExampleViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let data = items?[indexPath.row]{
+            eventHandler.handleDetails(ID: data.id)
+        }
     }
     
     
